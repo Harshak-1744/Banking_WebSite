@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button } from '@mui/material';
+import { Routes, Route, Link } from 'react-router-dom';
+import LoginPage from '../components/pages/LoginPage'; 
 
 const MainContent = () => {
-
   return (
     <div>
       {/* Welcome Section */}
@@ -12,10 +13,18 @@ const MainContent = () => {
       </div>
 
       {/* Complaint Registration Section */}
-      <div className= "complaint-registration-section" >
+      <div className="complaint-registration-section">
         <h2 style={{ textAlign: 'center', fontSize: '40px', paddingTop: '60px' }}>Need to Raise a Concern?</h2>
         <p>Your feedback is important to us. Register your complaint here.</p>
-        <Button variant="contained" color="primary">Register Complaint</Button>
+
+        <Routes>
+            <Route path="login" element={<LoginPage />} />
+          </Routes>
+          <Link to="/login" style={{ textDecoration: 'none' }}>
+            <Button variant="contained" color="primary">
+              Register Complaint
+            </Button>
+          </Link>
       </div>
     </div>
   );
